@@ -7,7 +7,7 @@ const HeaderTask = () => {
   const completedTasks = tasks.filter((task) => task.isChecked);
 
   return (
-    <div className="mb-6 mt-12 flex justify-between">
+    <div className="mb-6 mt-5 flex flex-col gap-4 sm:flex-row sm:justify-between md:mt-12">
       <div className="flex gap-2">
         <p className="font-bold text-blue">Tarefas criadas</p>
 

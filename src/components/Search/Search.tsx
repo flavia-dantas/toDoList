@@ -6,12 +6,10 @@ import { TasksContext } from "@/contexts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { v4 as uuidv4 } from "uuid";
 import searchSchema from "./searchSchema";
+import clsx from "clsx";
 
-interface SearchProps {
-  onSubmit: (value: SearchFormValues) => void;
-}
 
-const Search: React.FC<SearchProps> = ({ onSubmit }) => {
+const Search = () => {
   const {
     register,
     handleSubmit,
@@ -33,14 +31,23 @@ const Search: React.FC<SearchProps> = ({ onSubmit }) => {
   };
 
   return (
-    <div className="-mt-[1rem] flex justify-center gap-2">
-      <form id="newTaskForm" onSubmit={handleSubmit(handleFormSubmit)}>
+    <div className="-mt-[1rem] flex flex-col items-center justify-center gap-4 md:flex-row md:items-start md:gap-2">
+      <form
+        className="flex w-full flex-col items-center justify-center md:w-[638px] md:items-start"
+        id="newTaskForm"
+        onSubmit={handleSubmit(handleFormSubmit)}
+      >
         <input
           id="task"
-          className="h-[54px] w-[638px] rounded-[8px] border-solid border-gray-700 bg-gray-500 p-4 text-gray-100 placeholder-gray-300 outline-purple-dark"
           type="text"
+          placeholder="Adicione uma nova tarefa"
           autoComplete="off"
           {...register("task")}
+          className={clsx(
+            "h-[54px] w-3/4 rounded-[8px] border-solid bg-gray-500 p-4 text-gray-100 placeholder-gray-300 md:w-[638px]",
+            (errors.task && "border-danger outline-danger") ||
+            "border-gray-700 outline-purple-dark",
+          )}
         />
 
         {errors.task?.message && (
@@ -51,8 +58,8 @@ const Search: React.FC<SearchProps> = ({ onSubmit }) => {
       </form>
 
       <button
+        className="flex h-[54px] w-3/4 items-center justify-center gap-2 rounded-[8px] bg-blue-dark p-4 text-gray-100 hover:bg-blue md:w-28"
         form="newTaskForm"
-        className="flex h-[54px] w-28 items-center justify-center gap-2 rounded-[8px] bg-blue-dark p-4 text-gray-100 hover:bg-blue"
         type="submit"
       >
         Criar

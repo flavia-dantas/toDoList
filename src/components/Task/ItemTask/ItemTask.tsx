@@ -16,7 +16,7 @@ const ItemTask = () => {
       {tasks.map((task) => (
         <div
           key={task.id}
-          className="mb-3 flex w-[736px] gap-3 rounded-[8px] border border-solid border-gray-400 bg-gray-500 p-4"
+          className="mb-3 flex gap-3 rounded-[8px] border border-solid border-gray-400 bg-gray-500 p-4 md:w-[736px]"
         >
           <label className="relative" htmlFor={`checkbox-${task.id}`}>
             <input
@@ -41,7 +41,7 @@ const ItemTask = () => {
 
           <p
             className={clsx(
-              "w-[632px] font-normal text-gray-100",
+              "w-[632px] break-all font-normal text-gray-100",
               task.isChecked && "text-gray-300 line-through",
             )}
           >

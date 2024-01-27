@@ -6,11 +6,11 @@ const Empty = () => (
     <Image src={IconClipboard} alt="icon clipboard" />
 
     <div>
-      <p className="text-base font-bold text-gray-300">
+      <p className="text-center text-base font-bold text-gray-300">
         Você ainda não tem tarefas cadastradas
       </p>
 
-      <p className="text-base text-gray-300">
+      <p className="text-center text-base text-gray-300">
         Crie tarefas e organize seus itens a fazer
       </p>
     </div>

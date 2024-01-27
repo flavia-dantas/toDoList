@@ -6,9 +6,11 @@ import { TasksContext } from "@/contexts";
 
 const Task = () => {
   const { tasks } = useContext(TasksContext);
+
   return (
-    <div className="w-[736px]">
+    <div className="mb-7 w-3/4 md:w-[736px]">
       <HeaderTask />
+
       {tasks?.length > 0 ? <ItemTask /> : <Empty />}
     </div>
   );
